@@ -1,0 +1,175 @@
+<div id="app_program_description">
+
+    <div class="form-control " style="    padding-top: 6px; padding-left: 30px; padding-right: 30px; text-align: justify;
+                 border: none;" :style="{'background':rgbaStyle + '!important'}" >
+                <h1 :style="{'color':stylesDinmamic[0].color_text + '!important'}">{{id_progrm}}</h1>
+        
+        <div :style="{'color':stylesDinmamic[0].color_text + '!important'}" >
+            <!-- <div>
+                  <table class="table  table-hover table-responsive" style="background-color:rgb(255, 255, 255);">
+                      <thead>
+                        <tr>
+                            <th style="color: black;"  scope="col">Name Program</th>
+                            <th style="color: black;"  scope="col">Cashout</th>
+                            <th style="color: black;"  scope="col">Purchase</th>
+                            <th style="color: black;"  scope="col">Rt</th>
+                        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="program in program_html">
+                          <th style="color: black;" scope="row">{{program.name}}</th>
+                          <td v-show="program.lp_cashout=='yes'"><i  style="color: #28a745;" class="fas fa-check-circle"></i></td>
+                          <td v-show="program.lp_purchase=='yes'"><i style="color: #28a745;" class="fas fa-check-circle"></i></td> 
+                          <td v-show="program.lp_purchase==''"><i style="color: #dc3545;"  class="fas fa-times-circle"></i></td> 
+                          <td v-show="program.lp_cashout==''"><i style="color: #dc3545;"  class="fas fa-times-circle"></i></td>
+                          <td v-show="program.lp_cashout=='no'"><i style="color: #dc3545;"  class="fas fa-times-circle"></i></td>
+                          <td v-show="program.lp_purchase=='no'"><i  style="color: #dc3545;"  class="fas fa-times-circle"></i></td>
+                          <td v-show="program.lp_rt=='yes'"><i style="color: #28a745;" class="fas fa-check-circle"></i></td>
+                          <td v-show="program.lp_rt==''"><i style="color: #dc3545;"  class="fas fa-times-circle"></i></td>
+                          <td v-show="program.lp_rt=='no'"><i style="color: #dc3545;"  class="fas fa-times-circle"></i></td>
+                  
+                        </tr>
+                      
+                      </tbody>
+                  </table> 
+
+                </div> -->
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-2 " style="text-align: center;" v-for="program in program_html">
+                <div class="card cardFondo pt-2"  :style="{'background': rgbaStyle + '!important'}" style="width: 19rem; ">
+                   
+                      <div class="card-body">
+                        <h4 :style="{'color': stylesDinmamic[0].color_name + '!important'}"  
+                        class="card-title text-success">{{program.name}}
+                        </h4>
+                        <div style="display: flex; align-content: center; justify-content: space-around;">
+                          <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                            * Cashout 
+                            <i  v-show="program.lp_cashout=='yes'" style="color: #28a745;" class="fas fa-check"></i>
+                            <i  v-show="program.lp_cashout=='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                            <i  v-show="program.lp_cashout==''" style="color: #dc3545;" class="fas fa-times"></i>
+                        
+                          </p>
+                          <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            * Purchase 
+                            
+                            <i  v-show="program.lp_purchase=='yes'" style="color: #28a745;" class="fas fa-check"></i>
+                            <i  v-show="program.lp_purchase=='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                            <i  v-show="program.lp_purchase==''" style="color: #dc3545;" class="fas fa-times"></i>
+
+                          </p>
+                          <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            * Rt 
+                            
+                            <i  v-show="program.lp_rt=='yes'" style="color: #28a745;" class="fas fa-check"></i>
+                            <i  v-show="program.lp_rt=='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                            <i  v-show="program.lp_rt==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          </p>
+  
+                        </div>
+                        <div class="row">
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               2 Units: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_2 != 'no'">{{program.Units_2}}%</label>
+                              <i  v-show="program.Units_2 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_2 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               2-3 Units: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_2_3 != 'no'">{{program.Units_2_3}}%</label>
+                              <i  v-show="program.Units_2_3 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_2_3 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               2-4 Units: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_2_4 != 'no'">{{program.Units_2_4}}%</label>
+                              <i  v-show="program.Units_2_4 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_2_4 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               3 Units: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_3 != 'no'">{{program.Units_3}}%</label>
+                              <i  v-show="program.Units_3 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_3 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               3-4 Units:<label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_3_4 != 'no'">{{program.Units_3_4}}%</label>
+                              <i  v-show="program.Units_3_4 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_3_4 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: justify;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               4 Units: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.Units_4 != 'no'">{{program.Units_4}}%</label>
+                              <i  v-show="program.Units_4 =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.Units_4 ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: left;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               2ND Home: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.HOME_2ND != 'no'">{{program.HOME_2ND}}%</label>
+                              <i  v-show="program.HOME_2ND =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.HOME_2ND ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+
+                          <div class="col-6" style="text-align: left;">
+                            <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                            
+                               Non Owner: <label :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" 
+                                       v-show="program.NON_OWNER != 'no'">{{program.NON_OWNER}}%</label>
+                              <i  v-show="program.NON_OWNER =='no'" style="color: #dc3545;" class="fas fa-times"></i>
+                              <i  v-show="program.NON_OWNER ==''" style="color: #dc3545;" class="fas fa-times"></i>
+                          
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+    
+               
+              </div>
+
+            </div>
+
+
+        </div>
+            
+    </div>
+</div>
+<script src="/pageMortgage/public//app/app_program_description.js"></script>

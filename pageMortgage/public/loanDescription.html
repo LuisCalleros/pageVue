@@ -1,0 +1,63 @@
+<div id="app_loan_descripsion">
+
+    <div class="form-control " :style="{'background': rgbaStyle + '!important'}" style="padding-top: 6px; padding-left: 51px; padding-right: 51px; text-align: justify; ">
+        
+        <div >
+            <div  class="conainer  mt-2 " style="padding: 35px;" >
+                <div class="row " style="margin-bottom: 13px;">
+                    
+                    </p>
+                    <h1 :style="{'color': stylesDinmamic[0].color_name + '!important'}" >{{loansOficer[0].name}}</h1>
+                    <div class="col-3 ml-lg-1 " style="position: relative;" >
+
+                        <img v-if="loansOficer[0].picture" class="borederPhoto " :style="{'border-color': stylesDinmamic[0].color_border_user + '!important'}"   style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"
+                        :src="'http://1smtg.com/picture.php?name='+ loansOficer[0].picture"  alt="">
+            
+                    </div>
+            
+                    <div class="col-3 ">
+                        <p :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" >{{loansOficer[0].title}}</p> 
+                        <p :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" > <i class="fas fa-phone"></i> {{loansOficer[0].phone}}</p>
+                        <p :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" ><i class="fas fa-hashtag"></i> NMLS {{loansOficer[0].nmls_id}}</p>
+                        <div :style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  class="">
+                            <i class="fas fa-envelope"></i> 
+                            <a ><i class="fab fa-facebook-f"></i></a>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-reddit"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-danger" @click="goToCustumerPortal" style="margin-top: 40px; margin-bottom: 10px;">Apply Now</button><br>
+                        
+                        <button class="btn btn-danger" @click="goToQuote" style="width: 105px;">Get Quote</button>
+                    </div>
+                </div>
+                <div class="form-control "  :style="{'background': rgbaStyle + '!important'}"  style="  border:none;  padding-top: 6px;
+                    padding-left: 51px;
+                    padding-right: 51px;">
+                    <h1 :style="{'color': stylesDinmamic[0].color_name + '!important'}" >Hello, I'm {{loansOficer[0].name}}!</h1>
+                    <p :style="{'color': stylesDinmamic[0].color_info_user + '!important'}" >{{loansOficer[0].aboutme}}</p>
+            
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 :style="{'color': stylesDinmamic[0].color_name + '!important'}">Videos</h1>
+            <div class="row">
+                <div class="col-3" v-for="video in videosUser">
+                    <video style="max-width: 312px; max-height: 199px;" :src="server + '98/getVideoMessage/' + video.nameFile " controls></video>
+                    <a :href="video.linkVideo" style="text-decoration: none;">
+                        <h4 :style="{'color': stylesDinmamic[0].color_info_user + '!important'}">{{video.title}}</h4>     
+                    </a>
+                    
+                </div>
+
+            </div>
+        </div>
+          
+     </div>
+</div>
+<script src="/pageMortgage/public//app/app_loan_descripsion.js"></script>

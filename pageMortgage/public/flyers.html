@@ -1,0 +1,18 @@
+<div id="app_flyers">
+
+    <div class="form-control " style="    padding-top: 6px; padding-left: 51px; padding-right: 51px; text-align: justify;
+                background-color: rgba(0, 0, 0, 0.5); color: white; border: none;">
+                <h1>Flyers</h1>
+        
+        <!-- <div v-html="flyers[0].body"></div> -->
+        <div class="row">
+            <div v-for="flyer in flyers" style="margin-bottom: 42px;" class="col-3">
+                <img style="max-width: 90px;" :src="server + puerto + '/getflayer/'+ flyer.name_code " alt=""> <br>
+                {{flyer.name_file}}
+            </div>
+
+        </div>
+            
+    </div>
+</div>
+<script src="/pageMortgage/public/app/app_flyers.js"></script>

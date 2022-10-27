@@ -1,0 +1,56 @@
+        <div id="app_morgage_blogs">
+            
+            <div class="container  ":style="{'background': rgbaStyle  + '!important'}"  style="padding: 35px;  ">
+                <h1 :style="{'color':stylesDinmamic[0].color_text + '!important'}" >Mortgage Blogs</h1>
+                
+                <div style="text-align: center;">
+                    <a @click="goToblog(blogs[0].id)">
+    
+                     <img  :src="blogs[0].picture" alt=""> 
+                      
+                    </a>
+                    <h3 :style="{'color':stylesDinmamic[0].color_text + '!important'}" >{{blogs[0].title}}</h3>
+                    <h5 style="text-align: center;" :style="{'color':stylesDinmamic[0].color_text + '!important'}" >There's a lot of talk lately about how challenging it can be to find a home to buy. While housing</h5>
+                </div>
+                
+          
+                <div class="row mt-5">
+                    <div class="col-6" style="text-align: center;" v-for="old in bolgs_pasados">
+                        <a @click="goToblog(old.id)">
+    
+                            <img :src="old.picture" class="img-fluid" style="max-width: 214px !important;" alt="...">
+                        </a>
+    
+                        
+                        <h2 :style="{'color':stylesDinmamic[0].color_text + '!important'}" >{{old.title}}</h2>
+                        <!-- <p style="text-align: justify;">
+                            Buyers in today's market often have questions 
+                            about the importance of getting a home appraisal and an inspection. That's because
+                        </p> -->
+                       
+                    </div>
+                    
+                    
+                </div>
+                <div>
+                    <ul   class="pagination" >
+                        <li class="page-item"><a @click="movePage(-1)" class="page-link pageColor" >Previous</a></li>
+
+                        <li v-show="page < current_page + 3 && page > current_page - 3" class="page-item" 
+                            v-for="page in pageBanner" v-bind:class="{'active': current_page ==  page}">
+                            <a  @click="getLoansOficers(page)" type="button" class="page-link pageColor">{{page+1}}</a>
+                        </li>   
+                             
+                        <li class="page-item"><a @click="movePage(1)" class="page-link pageColor" >Next</a></li>
+        
+        
+                        
+                     </ul> 
+                       
+        
+                </div>
+        
+              
+            </div>
+        </div>
+        <script src="/pageMortgage/public/app/app_morgage_blogs.js"></script>

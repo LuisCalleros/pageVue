@@ -1,0 +1,49 @@
+<div id="app_contact">
+    <div class="conteiner " style=" padding-top: 6px; padding-left: 51px; padding-right: 51px; text-align: justify;">
+        <div class="form-control " style="background-color: rgba(0, 0, 0, 0.5); border: none;" >
+            <div >
+    
+                <div class="row">
+                    <div class="col-6">
+                        <img src="/pageMortgage/public/images/Buying-Cheaper-STM.jpg" class="img-fluid" >
+                    
+    
+    
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+    
+                            <div class="col-lg-6">
+                             <h4>Name</h4>
+                                <input id="name" class="form-control colorInput colorInput1" type="text">
+                                <h4>Email Address</h4>
+                                <input id="email" class="form-control colorInput colorInput1" type="email">
+                                <h4>Phone</h4>
+                                <input id="phone" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"   maxlength="10"size="10" type="text">
+                                <h4>Subject</h4>
+                                <input id="subject" class="form-control colorInput colorInput1" type="text">
+    
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Message</h4>
+                                <textarea id="message" class="form-control colorInput colorInput1"  cols="30" rows="10"type="text"></textarea>
+                                <div style="text-align: left;margin-top: 72px; position: relative;">
+                                    <button class=" btn btn-secondary" style="background: none;
+                                    position: absolute;bottom: 50%; right: 0;" @click="sendEmail">Send</button>
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+
+</div>
+<Script src="/pageMortgage/public/app/app_contact.js"></Script>

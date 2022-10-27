@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mission San Jose  Mortgage</title>
+    <link rel="icon" href="/images/logoWhite.png">
+
+	 <!-- Latest compiled and minified CSS -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="style.css">
+     <script src="config.js"></script>
+     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+
+     <!-- for graphic  -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+
+		function renderPage(page) {
+			$("#container").load(page)
+		}
+
+        
+
+	</script> 
+    <style>
+        #video_background {
+
+            position: fixed;
+
+            bottom: 0px;
+
+            right: 0px;
+
+            min-width: 100%;
+
+            min-height: 100%;
+
+            width: auto;
+
+            height: auto;
+
+            z-index: 0;  
+
+            overflow: hidden;
+
+
+
+        }
+        .navStyle{
+            width: 100%;
+            height: 88px;
+            z-index: 1;
+        }
+        .dorpstyle{
+            background-color:none; background: none; border: none; padding-top: 9px;
+        }
+    </style>
+</head>
+
+<body >
+    
+    <div id="app_page" class="header" style="z-index: -1;" >
+        <nav class="navbar  navbar-expand-sm navbar-collapse navbar-toggler bg-dark navbar-dark" style="z-index: 1;"  :style="{'background':stylesDinmamic[0].color_head + '!important'}">
+        
+                <div class="container-fluid">
+                   
+                    <a class="navbar-brand " href="index.html">
+                        <img :src="'https://1smtg.com/picture.php?name=' + infoEteprices[0].picture" alt="" width="30" height="24" style="width: 174px; height: 58px;" class="d-inline-block align-text-top">
+                        
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="flex-wrap: nowrap; justify-content: flex-end;">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a :style="{'color':stylesDinmamic[0].color_text + '!important'}" class="nav-link active" href="index.html">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <button class="btn dorpstyle btn-secondary dropdown-toggle" type="button"  :style="{'color':stylesDinmamic[0].color_text + '!important'}" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                   loan Programs
+                                  </button>
+                                  <ul class="dropdown-menu colorNAvREcuadro" aria-labelledby="dropdownMenuButton1">
+                                    <!-- <li v-for="program in programs"><a  class="dropdown-item" @click="goToProgramDescripsion(program.id)">{{program.title}}</a></li> -->
+                                    <li class="">
+                                        <button class="btn dorpstyle btn-secondary " @click="changeDropdwonConvetional"@click.stop  style="color: black;" type="button"  id="dropdownMenuButton2" data-bs-toggle="dropdown" >
+                                            Convetional <i class="fas fa-arrow-alt-down"></i>
+                                        </button>
+                                        
+                                            <ul class="nav navbar-nav">
+                                                <li v-show="convetionalDrop == 'true'" >
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('CONFORMING')"> * Conforming</a>
+                                                </li>
+                                                <li v-show="convetionalDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('AGENCY_JUMBO')"> * Agency Jumbo</a>
+                                                </li>
+                                                <li v-show="convetionalDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('CL_')"> * Home Ready</a>
+                                                </li>
+                                                <li v-show="convetionalDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('CL_Home_Path')"> * Home Path</a>
+                                                </li>
+                                                <li v-show="convetionalDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('CL_Home_Style')"> * Home Style</a>
+                                                </li>
+                                                <li v-show="convetionalDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('CL_Refi_Possible')"> * Refi Possible</a>
+                                                </li>
+                                            </ul>
+                                         
+    
+                                    </li>
+                                    <li class="">
+                                        <button class="btn dorpstyle btn-secondary " @click="changeDropdwongovernmentDrop" @click.stop style="color: black;"  type="button"  id="dropdownMenuButton2" data-bs-toggle="dropdown" >
+                                            Government <i class="fas fa-arrow-alt-down"></i>
+                                        </button>
+                                        
+                                            <ul class="nav navbar-nav">
+                                                <li v-show="governmentDrop == 'true'" >
+                                                    <a class="dropdown-item"   @click="goToProgramDescripsion('FHA')"> * FHA</a>
+                                                </li>
+                                                <li v-show="governmentDrop == 'true'">
+                                                    <a class="dropdown-item"   @click="goToProgramDescripsion('USDA')"> * USDA</a>
+                                                </li>
+                                                <li v-show="governmentDrop == 'true'">
+                                                    <a class="dropdown-item"   @click="goToProgramDescripsion('VA')"> * VA</a>
+                                                </li>
+                                                <li v-show="governmentDrop == 'true'">
+                                                    <a class="dropdown-item"   @click="goToProgramDescripsion('203K')"> * 203K</a>
+                                                </li>
+                                                <li v-show="governmentDrop == 'true'">
+                                                    <a class="dropdown-item"   @click="goToProgramDescripsion('Reverse')"> * Reverse</a>
+                                                </li>
+                                              
+                                            </ul>
+                                         
+    
+                                    </li>
+                                    <li class="">
+                                        <button class="btn dorpstyle btn-secondary " @click="changeDropdwonportafoliotDrop" @click.stop style="color: black;"  type="button"  id="dropdownMenuButton2" data-bs-toggle="dropdown" >
+                                            Portfolio <i class="fas fa-arrow-alt-down"></i>
+                                        </button>
+                                        
+                                            <ul class="nav navbar-nav">
+                                                <li v-show="portafolioDrop == 'true'" >
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('Non_QM')"> * Non QM</a>
+                                                </li>
+                                                <li v-show="portafolioDrop == 'true'">
+                                                    <a class="dropdown-item"  @click="goToProgramDescripsion('Jumbo')"> * Jumbo</a>
+                                                </li>
+                                      
+                                            </ul>
+                                         
+    
+                                    </li>
+                                    <li> <a class="dropdown-item"  @click="goToProgramDescripsion('Simple')"> Private Money</a></li>
+                                
+                                  </ul>
+                                    
+            
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"onclick="renderPage('teams.html')" :style="{'color':stylesDinmamic[0].color_text + '!important'}" >Our Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="renderPage('boutUs.html')" :style="{'color':stylesDinmamic[0].color_text + '!important'}" >About Us</a>
+                            </li>
+                            <li class="dropdown">
+                                <button class="btn btn-secondary dorpstyle dropdown-toggle"  :style="{'color':stylesDinmamic[0].color_text + '!important'}" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mortgage Resources
+                                  </button>
+                                  <ul class="dropdown-menu colorNAvREcuadro" aria-labelledby="dropdownMenuButton1">
+                                      <li><a class="dropdown-item" onclick="renderPage('morgageBlogs.html')" >Mortgage Blogs</a></li>
+                                      <li><a class="dropdown-item" onclick="renderPage('mortgageFroms.html')">Mortgage Forms</a></li>
+                                      <li v-show ="calculator == '4'"><a class="dropdown-item" onclick="renderPage('Calculator.html')" >Calculator</a></li>
+                                    <li><a class="dropdown-item" onclick="renderPage('flyers.html')" href="#">Mortgage Flyers</a></li>
+                                    <li><a class="dropdown-item"  >Mortgage Videos</a></li>
+                                    <li v-for="options in mortgageOptions">
+                                        <a class="dropdown-item"  @click="goToMortgageOptionsDescripsion(options.id)" >{{options.title}}</a>
+                                    </li>
+                                    
+                                  </ul>
+            
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="renderPage('coantacUs.html')" :style="{'color':stylesDinmamic[0].color_text + '!important'}" >Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" :style="{'color':stylesDinmamic[0].color_text + '!important'}">Covid 19</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="homeBtn.html">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li> -->
+                           
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+
+        <div  class="header" :style="{'backgroundImage': 'url('+ server +puerto + '/getBackgroundPage/' + stylesDinmamic[0].img_background + ')'}" >
+            <video  v-show="stylesDinmamic[0].video_background" id="video_background" :src="server + puerto + '/getBackgroundPage/' + stylesDinmamic[0].video_background "  autoplay muted></video>    
+            
+    
+            <div id="container" class="container " style=" position: relative;">
+        
+                <div  style="height: 100vh; color: #fff; padding-top: 50px;">
+                  <div class="header-content">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-lg-12">
+                                  <div class="text-container" style="text-align: center;">
+                                    <div>
+                                        <h1 style="font-size: 3em;" :style="{'color':stylesDinmamic[0].color_text + '!important'}"> {{infoEteprices[0].name}}</h1>
+                                        <p class="p-heading p-large"style="font-size: 1.5em;" :style="{'color':stylesDinmamic[0].color_text + '!important'}">We are not a bank...we're just better!</p>
+
+                                    </div>
+                                    <!-- <a class="btn-solid-lg page-scroll" href="#intro">DISCOVER</a> -->
+                                      <div class="container mt-4 p-auto " >
+                                          <div class="row m-auto " w="100" >
+                                             <div class="col-lg-6 mb-2">
+                                              <div class="card border-danger " style="    max-width: 41rem; text-align: center;" :style="{'background':rgbaStyle + '!important'}">
+                                                  <div class="card-body text-danger">
+                                                    <h3 class="card-title" style="font-size: 40px;" :style="{'color':stylesDinmamic[0].color_text + '!important'}">Purchase</h3>
+                                                    <p class="card-text"style="color:white" :style="{'color':stylesDinmamic[0].color_text + '!important'}">Buying a home is easy with Mission San Jose Mortgage</p>
+                                                    <a onclick="renderPage('purcheseInfo.html')"  >
+          
+                                                        <button class="btn btn-danger" >Learn More</button>
+                                                    </a>
+                                                  </div>
+                                              </div>
+                                             </div>
+                                             <div class="col-lg-6">
+                                                  <div class="card border-danger " :style="{'background':rgbaStyle + '!important'}" style="    max-width: 41rem; text-align: center;">
+                                                      <div class="card-body text-danger">
+                                                      <h3 class="card-title" style="font-size: 40px;":style="{'color':stylesDinmamic[0].color_text + '!important'}">Refinance</h3>
+                                                      <p class="card-text"style="color:white" :style="{'color':stylesDinmamic[0].color_text + '!important'}">Get a better interest rate with Mission San Jose Mortgage</p>
+                                                      <a onclick="renderPage('refinanceInfo.html')"  >
+          
+                                                          <button class="btn btn-danger" >Learn More</button>
+                                                      </a>
+                                                      </div>
+                                                  </div>
+                                      
+          
+                                             </div>
+                                          
+                                          </div>
+                                  
+                                      </div>
+                                  
+                                  </div>
+                              </div> <!-- end of col -->
+                          </div> <!-- end of row -->
+                      </div> <!-- end of container -->
+                  </div> 
+              </div>
+            </div>
+            <!-- <div id="hello_loan" style=" z-index: 999999999px; text-align: right; margin-top: 66px; margin-right: -29px;" border-radius: 31px 31px 0px 31px; background: rgb(76 75 75) ; box-shadow: -1px 3px 3px #999; display: none;">
+                <p>Hello, i'm {{loanOfficerName}}</p>
+            </div> -->
+           <div  style=" z-index: 999999999px; text-align: right; margin-top: 66px; margin-right: -29px;" v-show="loanOfficerName">
+               <!-- <p> you are working whit {{loanOfficerName}}</p>  -->
+               <img   @click="goToLoanDescripsion(loanOfficerId)" 
+                 @mouseover="showBubble" @mouseleave="hideBubble" 
+                 v-if="imgLoanOfficer" class="borederPhoto " 
+                 :style="{'border-color': stylesDinmamic[0].color_border_user + '!important'}"   
+                 style=" max-width: 100px;max-height: 100px; transform: translate(-50%, -50%);"
+                 :src="'http://1smtg.com/picture.php?name='+ imgLoanOfficer"  alt="">
+           </div>
+            <footer style="position: absolute; width: 100%;">
+                <div  >
+                    
+                    <div  class="" :style="{'background':rgbaStyle + '!important'}" style=" width: 100%; margin-bottom: -40px;">
+                        <div style="text-align: center;"  :style="{'color':stylesDinmamic[0].color_text + '!important'}">
+                            <h4 :style="{'color':stylesDinmamic[0].color_text + '!important'}">Contact Us</h4>
+                            {{infoEteprices[0].address}}<br>   
+                            {{infoEteprices[0].city}}, {{infoEteprices[0].state}} {{infoEteprices[0].county}} <br>
+                            
+                            {{numeroofice}}   Office <br>
+                            {{faxNumber}} Fax <br>
+                            NMLS # {{infoEteprices[0].licensing}}<br>
+                        </div>
+                        <div v-if="infoEteprices[0].id == 1" class="row mt-3 mb-3" style="text-align: center; margin: left 0px; margin: right 0px;">
+                            <div class="col-4" v-for="sello in sellos">
+                                <h2 :style="{'color':stylesDinmamic[0].color_text + '!important'}">{{sello.name_file}}</h2>
+                                <img style="width: 180px;" :src="server + puerto +'/getFile/' + sello.name_code " alt="">
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="backFooter" >
+                            <div style="text-align: justify; margin: 40px;" >
+                                <div class="row"style="margin: left 0px; margin: right 0px;">
+                                    <div style="text-align: right;" class="col-1">
+                                        <img style="max-width: 198px;"src="https://msjmortgage.com/wp-content/uploads/2016/02/eho-e1479021911501.png" alt="">
+                                    </div>
+                                    
+                                    <div :style="{'color':stylesDinmamic[0].color_text + '!important'}" class="col"> 
+                                        {{infoEteprices[0].disclaimer}}
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="backFooter" :style="{'background':rgbaStyle + '!important'}" style=" width: 100%; text-align: center; margin: left 0px; margin: right 0px;" >
+                        <div>
+                            
+                            <img src="https://1smtg.com:90/getChatAttachments/3044e26e-9bc2-43df-9302-8e5cf62bb713/online" alt="" style=" opacity: 0.5;   max-width: 176px;">
+                        </div>
+                        <div class="row" style="margin: left 0px; margin: right 0px;">
+                            <div class="col-4"></div>
+                            <div :style="{'color':stylesDinmamic[0].color_text + '!important'}" class="col-4">Copyright © 2021 © Power by Zero1Solution, LLC. All rights reserved.</div>
+                            <div class="col-4"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    </body>
+<script src="/pageMortgage/public/app/app_page.js"></script>
+
+
+</html>

@@ -1,0 +1,194 @@
+      <div id="app_calculator">
+        <div id="" class="container mt-2 p-auto" >
+            
+            <!-- por si se ocupa eliminar -->
+            <div style="padding: 35px; background-color: rgba(0, 0, 0, 0.5); ">
+                <h1>Mortgage Calculator</h1>
+                <div class="row">
+                    <div style="margin: 3px;" class="row col-lg-6">
+                        <h4>Adjust values </h4>
+                        <div class="row" style="margin: 5px;">
+                           <div class="col-lg-6" style="text-align: justify;">
+                               <h5 for="">Home Value :</h5>
+                               
+                               <input id="homeValue" value="300000" @change="getPrincipalInterest" class="form-control colorInput colorInput1"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                           </div>
+                           <div class="col-lg-6">
+                               <h5 for="">Down Payment :</h5>
+                               <input id="downPayment" value="9000" @change="getPrincipalInterest" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                               
+                           </div>
+                           <!-- <div class="col-lg-6">
+       
+                           </div> -->
+                           
+                       </div>
+                       <div class="row" style="margin: 5px;">
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                        <div class="col-lg-6">
+                            <h5 for="">Interest Rate (%) : </h5>
+                            
+                            <input id="intersertRate" value="4.5" @change="getPrincipalInterest" class="form-control colorInput colorInput1"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                        </div>
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                        <div class="col-lg-6">
+                            <h5 for="">Amortization Period :</h5>
+                            
+                            <select  class="form-control colorInput colorInput1"name="" @change="getPrincipalInterest" id="select_years">
+                                <option style="color: black;" value="360">30 Years</option>
+                                <option style="color: black;" value="300">25 Years</option>
+                                <option style="color: black;" value="240">20 Years</option>
+                                <option style="color: black;" value="180">15 Years</option>
+                                <option style="color: black;" value="120">10 Years</option>
+                                <option style="color: black;" value="60">5 Years</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                        <div class="col-lg-6">
+                            <h5 for="">Annual Property Tax :</h5>
+                            
+                            <input id="annualProerty" value="1.25" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" @change="getPrincipalInterest"  type="text">
+                        </div>
+                        <div class="col-lg-6">
+                            <h5 for="">Annual Hazard Insurance :</h5>
+                            
+                            <input id="annualHazardIns" value="75" @change="getPrincipalInterest" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                        </div>
+                        <!-- <div class="col-lg-6">
+                            <div class="col-lg-6">
+                            <h5 for="">Start After :</h5>
+                            
+                            <input id="startAfter" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                            </div>
+    
+                        </div> -->
+                        
+                    </div>
+                    <div class="row" style="margin: 5px;">
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                       
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                        <div class="col-lg-6">
+                            <h5 for="">Monthly HOA : </h5>
+                            
+                            <input id="monthlyHOA" value="0" @change="getPrincipalInterest" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                        </div>
+                        <div class="col-lg-6">
+                            <h5 for="">MI :</h5>
+                            
+                            <input id="MI" value=".59"  @change="getPrincipalInterest" class="form-control colorInput colorInput1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text">
+                        </div>
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                        <!-- <div class="col-lg-6">
+    
+                        </div>
+                         -->
+                    </div>
+    
+                    <div class="row" style="margin: 5px;">
+                       
+                        <!-- <div class="col-lg-6">
+    
+                        </div> -->
+                        
+                    </div>
+                       
+                        
+                        
+                    </div>
+                    <div class="col-lg-3">
+                        <div style="position: relative;">
+                            <canvas id="graphicCalculator" width="200" height="200"></canvas> 
+                            <label for="" style="    position: absolute;
+                            left: 50%;
+                            top: 60%;
+                            transform: translate(-50%, -50%);">{{formatCurrency(monthly_installment)}}/Mo</label>
+                        </div>
+                        <table class="table tableCss ">
+                            <thead>
+                               
+                              <tbody>
+                                <tr>
+                                  <td>Principal & Interest</td>
+                                  <td></td>
+                                  <td>{{formatCurrency(pi)}}</td>
+    
+                                  
+                                </tr>
+                                <tr>
+                                    <td>Property Tax</td>
+                                    <td></td>
+                                    <td>{{formatCurrency(property_tax)}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>MI</td>
+                                    <td></td>
+                                    <td>{{formatCurrency(mi)}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>HOA</td>
+                                    <td></td>
+                                    <td>{{formatCurrency(hoa)}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>HI</td>
+                                    <td></td>
+                                    <td>{{formatCurrency(hazard_insurance)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Monthly Installment</td>
+                                    <td></td>
+                                    <td ><span>{{formatCurrency(monthly_installment)}}</span></td>
+    
+                                  
+                                </tr>
+                              </tbody>
+                            
+                          </table>
+    
+    
+                    </div>
+                </div>
+                <!-- fin del row -->
+                <div>
+    
+                    <!-- <canvas id="graphicAnual" width="500" height="200"></canvas>  -->
+                </div>
+    
+            </div>
+    
+        </div>
+      </div>
+      <script src="/pageMortgage/public/app/app_calculator.js"></script>

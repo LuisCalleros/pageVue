@@ -1,0 +1,132 @@
+
+        pre, h1{
+        font-size: 2em;
+        color: #ffffff;
+        background-color: transparent;
+    }
+    .colorNAvREcuadro{
+        background-color: rgb(255 255 255 / 75%);
+    }
+    .titulos{
+        font-size: 1.5em;
+        color: #ffffff;
+    }
+    h2, h3{
+        font-size: 1.5em;
+        color: #ffffff;   
+    }
+    p{
+        
+        color: rgb(255, 255, 255);
+    }
+
+    .header {
+        background-size: cover;
+    }
+    
+    .header .header-content {
+        padding-top: 8rem;
+        padding-bottom: 2.125rem;
+        text-align: center;
+    }
+    
+    .header .text-container {
+        margin-bottom: 3rem;
+    }
+    
+    .header h1 {
+        margin-bottom: 0.5rem;
+        color: #fff;
+    }
+    
+    .header .p-large {
+        margin-bottom: 2rem;
+        color: #dfe5ec;
+    }
+    
+    .header .btn-solid-lg {
+        margin-right: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+    .imgSoom{
+        
+            border-radius: 0.25rem;
+            margin: 0;
+        border-radius: 0.25rem;
+        transition: all 0.3s;
+    
+    } 
+    .carousel-item{
+        text-align: center;
+        
+    }
+    /* .backFooter{
+        background-color: rgb(0 0 0 / 77%);
+        color: white;
+    } */
+    
+    .logoEmresa{
+        image-rendering: url("images/logoWhite.png");
+    }
+    .conteinerMsleft{
+        max-width: 1000;
+        margin-left: 60px;
+        padding: 30px;
+    }
+    .conteinerMsRight{
+        max-width: 1000;
+        margin-left: 520px;
+        padding: 30px;
+    }
+    .borederPhoto {
+        width:150px;
+        height:150px;
+        border: solid 5px ;
+        border-radius:150px;
+        /* border-color: #aa0000; */
+        box-shadow: -1px 7px 22px 0px rgba(0,0,0,0.55);
+        -webkit-box-shadow: -1px 7px 22px 0px rgba(0,0,0,0.55);
+        -moz-box-shadow: -1px 7px 22px 0px rgba(0,0,0,0.55);
+    }
+   
+    span{
+        color: #aa0000;
+    }
+    label, h4,h5{
+        color: white;;
+    }
+    strong{
+        color: white !important;
+    }
+    .tableCss{
+        color: white;
+    }
+    
+
+    .colorInput:focus {
+        
+        background: transparent;
+        color: white;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0;
+        outline-width: 0;
+    }
+    .colorInput1 {
+        
+        background: transparent;
+        color: white;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0;
+    }
+    .listOl{
+        background: none;
+        border:none;
+        color: white;
+    }
+    .negritas{
+        font-weight: bold;
+    }

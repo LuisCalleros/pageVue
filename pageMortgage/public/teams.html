@@ -1,0 +1,55 @@
+<div id="app_teams">
+    <div  class="container  p-auto" >
+        <div class="row m-auto " w="100" >
+           
+            <div class="col-sm-4 col-md-4 col-lg-3 mb-2 " style="text-align: center;" v-for="loan in loansOfficers">
+                <div class="card cardFondo pt-2"  :style="{'background': rgbaStyle + '!important'}" style="width: 18rem; ">
+                <a @click="goToLoanDescripsion(loan.id)" >
+    
+                    <img v-if="loan.picture" class="borederPhoto m-auto"
+                     :style="{'border-color': stylesDinmamic[0].color_border_user + '!important'}"  
+                     :src="'http://1smtg.com/picture.php?name='+ loan.picture"  alt="">
+                    <!-- <img v-else="loan.picture" class="borederPhoto m-auto" src="/pageMortgage/public/images/omarSelfie.jpg"  alt=""> -->
+
+                </a>
+    
+                    <div class="card-body">
+                      <h4 :style="{'color': stylesDinmamic[0].color_name + '!important'}"  
+                       class="card-title text-success">{{loan.name}}
+                      </h4>
+                      <p class="card-text ":style="{'color': stylesDinmamic[0].color_info_user + '!important'}"  >
+                          {{loan.title}} <br> NMLS #{{loan.nmls_id}}
+                      </p>
+                    </div>
+                  </div>
+    
+               
+            </div>
+            <div>
+                <ul   class="pagination" >
+                    <li class="page-item"><a @click="movePage(-1)" class="page-link pageColor" >Previous</a></li>
+
+                    <li v-show="page < current_page + 3 && page > current_page - 3" class="page-item" v-for="page in pageBanner" 
+                      v-bind:class="{'active': current_page ==  page}">
+                      <a  @click="getLoansOficers(page)" type="button" class="page-link pageColor">{{page+1}}</a>
+                    </li>
+
+                    <li class="page-item"><a @click="movePage(1)" class="page-link pageColor" >Next</a></li>
+    
+    
+                    
+                 </ul> 
+                   
+    
+            </div>
+    
+            
+        </div>
+        <!-- por si se ocupa eliminar -->
+       
+    
+    </div>
+
+</div>
+
+<script src="/pageMortgage/public/app/app_teams.js"></script>
