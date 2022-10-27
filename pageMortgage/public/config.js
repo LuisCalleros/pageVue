@@ -1,2 +1,2 @@
-let webServer= "https://1smtg.com:"
+let webServer= "http://192.168.1.131:"
 let puerto = "220"
